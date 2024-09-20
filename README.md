@@ -1,2 +1,1 @@
-
-#NextGen-A Streaming Platform
+NextGen-A Streaming Platform
