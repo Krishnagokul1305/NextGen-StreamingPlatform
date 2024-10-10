@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import InputField from "../../Components/InputField";
 
 function LoginForm() {
   const Navigate = useNavigate();
@@ -12,23 +13,16 @@ function LoginForm() {
 
       <form>
         <div className="space-y-5">
-          <div className="flex flex-col">
-            <label className="text-white mb-1">Email</label>
-            <input
-              type="email"
-              placeholder="Enter Email Address"
-              className="p-4 rounded-lg bg-input border border-gray-700 text-white focus:outline-none font-light"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label className="text-white mb-1">Password</label>
-            <input
-              type="password"
-              placeholder="Enter Password"
-              className="p-4 rounded-lg bg-input border border-gray-700 text-white focus:outline-none font-light"
-            />
-          </div>
+          <InputField
+            label="Email"
+            type="email"
+            placeholder="Enter Email Address"
+          />
+          <InputField
+            label="Password"
+            type="password"
+            placeholder="Enter Password"
+          />
         </div>
         <div className="flex justify-between items-center text-[#C8C8C8] mt-4 text-xs">
           <div className="flex items-center">
@@ -39,8 +33,8 @@ function LoginForm() {
             />
             <label htmlFor="rememberMe">Remember Me</label>
           </div>
-          <a href="#" className="text-secondary">
-            Forgot Password
+          <a href="#" className="text-secondary" onClick={()=>Navigate("/forgot-password")}>
+            Forgot Password ?
           </a>
         </div>
         <button

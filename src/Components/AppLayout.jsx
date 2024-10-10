@@ -4,7 +4,6 @@ import NavBar from "./NavBar"
 function AppLayout() {
     return (
         <div>
-            <NavBar/>
             <Outlet/>
         </div>
     )

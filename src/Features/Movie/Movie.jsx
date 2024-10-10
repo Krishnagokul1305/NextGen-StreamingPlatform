@@ -1,46 +1,18 @@
 import { HiPlay } from "react-icons/hi";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import {
-  testMovie,
-  testMovie2,
-  testMovieBg,
-  testMovieBg2,
-  testMovieTile,
-  testMovieTile2,
-} from "../../assets/index";
 
-const movieData = {
-  background: testMovieBg,
-  poster: testMovie,
-  titleImage: testMovieTile,
-  rating: "CBFC: U/A",
-  genres: ["Action", "Adventure"],
-  duration: "2h 28m",
-  description:
-    "The movie is inspired by the real-life incident in Hiroshima and Nagasaki.",
-  //   background: testMovieBg2,
-  //   poster: testMovie2,
-  //   titleImage: testMovieTile2,
-  //   rating: "CBFC: U/A",
-  //   genres: ["Action", "Adventure"],
-  //   duration: "2h 28m",
-  //   description:
-  //     "The movie is inspired by the real-life incident in Hiroshima and Nagasaki.",
-};
-
-function MovieLander() {
+function Movie({ movieData = {} }) {
   return (
     <div
-      className="h-screen flex items-center py-10 relative"
+      className="h-screen flex items-center py-10 relative w-full"
       style={{
         backgroundImage: `linear-gradient(0deg, rgba(1, 1, 1, 0.577) 0%, rgba(0, 0, 0, 0.445) 100%), url(${movieData.background})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="h-screen overlay absolute top-0 inset-0 w-full z-40"></div>
-
-      <div className="flex items-center text-white gap-20 w-[80%] mx-auto mt-10">
+      <div className="absolute inset-0 w-full h-full bg-black opacity-50 z-10"></div>
+      <div className="relative z-20 flex items-center text-white gap-20 w-[80%] mx-auto mt-10">
         <div className="w-[320px]">
           <img
             src={movieData.poster}
@@ -60,7 +32,7 @@ function MovieLander() {
               {movieData?.genres?.map((genre, index) => (
                 <span key={index}>
                   {genre}
-                  {index <= movieData.genres.length && " ."}
+                  {index < movieData.genres.length - 1 && " ."}
                 </span>
               ))}
               <span>{movieData.duration}</span>
@@ -83,4 +55,4 @@ function MovieLander() {
   );
 }
 
-export default MovieLander;
+export default Movie;

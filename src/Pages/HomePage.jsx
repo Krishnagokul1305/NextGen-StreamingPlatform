@@ -1,13 +1,13 @@
+import MovieCarousel from "../Features/Movie/MovieCarousel";
 import MovieCompare from "../Features/Movie/MovieCompare";
-import MovieLander from "../Features/Movie/MovieLander";
 import MovieTrending from "../Features/Movie/MovieTrending";
 
 function HomePage() {
   return (
     <div>
-      <MovieLander />
-      <MovieTrending/>
-      <MovieCompare/>
+      <MovieCarousel />
+      <MovieTrending />
+      <MovieCompare />
     </div>
   );
 }
