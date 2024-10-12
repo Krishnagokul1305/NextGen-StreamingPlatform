@@ -14,9 +14,9 @@ function LoginForm() {
       <form>
         <div className="space-y-5">
           <InputField
-            label="Email"
-            type="email"
-            placeholder="Enter Email Address"
+            label="UserName"
+            type="text"
+            placeholder="Enter your UserName"
           />
           <InputField
             label="Password"
@@ -33,9 +33,12 @@ function LoginForm() {
             />
             <label htmlFor="rememberMe">Remember Me</label>
           </div>
-          <a href="#" className="text-secondary" onClick={()=>Navigate("/forgot-password")}>
+          <Link
+            className="text-secondary"
+            onClick={() => Navigate("/forgot-password")}
+          >
             Forgot Password ?
-          </a>
+          </Link>
         </div>
         <button
           type="submit"
