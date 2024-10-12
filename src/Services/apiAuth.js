@@ -2,10 +2,14 @@ import { API_BASE_URL } from "../config";
 
 const API_AUTH = `${API_BASE_URL}/auth`;
 
-async function login(username, password) {
+async function login({ username, password }) {
   try {
+    console.log(username, password);
     const res = await fetch(`${API_AUTH}/login`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         username,
         password,
