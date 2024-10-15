@@ -2,7 +2,7 @@ import { API_BASE_URL } from "../config";
 
 const API_AUTH = `${API_BASE_URL}/auth`;
 
-async function login({ username, password }) {
+async function login_api({ username, password }) {
   try {
     console.log(username, password);
     const res = await fetch(`${API_AUTH}/login`, {
@@ -27,7 +27,7 @@ async function login({ username, password }) {
   }
 }
 
-async function signUp(username, name, email, password) {
+async function signUp_api(username, name, email, password) {
   try {
     const res = await fetch(`${API_AUTH}/signup`, {
       method: "POST",
@@ -49,7 +49,7 @@ async function signUp(username, name, email, password) {
   }
 }
 
-async function forgotPassword(email) {
+async function forgotPassword_api(email) {
   try {
     const res = await fetch(`${API_AUTH}/forgot-password`, {
       method: "POST",
@@ -68,7 +68,7 @@ async function forgotPassword(email) {
   }
 }
 
-async function resetPassword(token, newPassword) {
+async function resetPassword_api(token, newPassword) {
   try {
     const res = await fetch(`${API_AUTH}/reset-password`, {
       method: "POST",
@@ -88,7 +88,7 @@ async function resetPassword(token, newPassword) {
   }
 }
 
-async function checkUserName(username) {
+async function checkUserName_api(username) {
   try {
     const res = await fetch(`${API_AUTH}/check-username/${username}`);
     if (!res.ok) {
@@ -102,4 +102,10 @@ async function checkUserName(username) {
   }
 }
 
-export { login, signUp, forgotPassword, resetPassword, checkUserName };
+export {
+  forgotPassword_api,
+  resetPassword_api,
+  login_api,
+  signUp_api,
+  checkUserName_api,
+};

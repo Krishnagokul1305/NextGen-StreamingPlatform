@@ -2,13 +2,18 @@ import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../Components/InputField";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { login } from "../../Services/apiAuth";
+import { login_api } from "../../Services/apiAuth";
 import toast from "react-hot-toast";
 
 function LoginForm() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const { register, reset, handleSubmit } = useForm({
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       username: "Cordia_Feest",
       password: "1234",
@@ -16,14 +21,16 @@ function LoginForm() {
   });
 
   const { mutate } = useMutation({
-    mutationFn: login,
+    mutationFn: login_api,
     onSuccess: (data) => {
       localStorage.setItem("token", JSON.stringify(data.data));
       toast.success(data.message);
+      navigate("/movies"); 
     },
     onError: (err) => {
       console.log(err);
       toast.error("Failed to login");
+      navigate("/movies"); 
     },
   });
 
@@ -38,7 +45,7 @@ function LoginForm() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="mb-6 flex justify-center">
-        <div className="w-24 h-12  flex items-center justify-center rounded">
+        <div className="w-24 h-12 flex items-center justify-center rounded">
           <span>Logo</span>
         </div>
       </div>
@@ -49,17 +56,32 @@ function LoginForm() {
             label="UserName"
             type="text"
             placeholder="Enter your UserName"
-            register={register}
-            name={"username"}
+            register={register("username", {
+              required: "Username is required",
+              minLength: {
+                value: 3,
+                message: "Username must be at least 3 characters long",
+              },
+            })}
+            name="username"
+            error={errors.username}
           />
           <InputField
             label="Password"
             type="password"
             placeholder="Enter Password"
-            register={register}
-            name={"password"}
+            register={register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 4,
+                message: "Password must be at least 4 characters long",
+              },
+            })}
+            name="password"
+            error={errors.password}
           />
         </div>
+
         <div className="flex justify-between items-center text-[#C8C8C8] mt-4 text-xs">
           <div className="flex items-center">
             <input
@@ -71,19 +93,21 @@ function LoginForm() {
           </div>
           <Link
             className="text-secondary"
-            onClick={() => Navigate("/forgot-password")}
+            onClick={() => navigate("/forgot-password")}
           >
-            Forgot Password ?
+            Forgot Password?
           </Link>
         </div>
+
         <button
           type="submit"
           className="w-[60%] mx-auto block bg-secondary hover:bg-secondary-hover text-white py-3 rounded-xl transition duration-300 my-7"
         >
           Sign In
         </button>
+
         <div className="text-center text-xs">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link to="/signup" className="text-secondary">
             SignUp
           </Link>
