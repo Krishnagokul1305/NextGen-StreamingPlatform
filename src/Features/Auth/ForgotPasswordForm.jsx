@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query"; 
+import { useMutation } from "@tanstack/react-query";
 import InputField from "../../Components/InputField";
-import {  forgotPassword_api } from "../../Services/apiAuth"; 
-import toast from "react-hot-toast"; 
+import { forgotPassword_api } from "../../Services/apiAuth";
+import toast from "react-hot-toast";
 
 function ForgotPasswordForm() {
   const {
@@ -15,9 +15,9 @@ function ForgotPasswordForm() {
   const { mutate } = useMutation({
     mutationFn: forgotPassword_api,
     onSuccess: (resetToken) => {
+      toast.success("Check your email for the reset link!");
       window.open(`/reset-password/${resetToken}`, "_blank");
       reset();
-      toast.success("Check your email for the reset link!");
     },
     onError: (error) => {
       console.error("Error resetting password:", error);
