@@ -21,29 +21,32 @@ function HomePage() {
     "https://i.gadgets360cdn.com/large/Oppenheimer_1658473809872.jpg",
     "https://images2.alphacoders.com/118/1187424.jpg",
     "https://preview.redd.it/just-watched-arrival-2016-for-the-first-time-what-an-v0-ysz3ijamo44c1.jpg?width=640&crop=smart&auto=webp&s=acf484b9ba694e98c1e300e2f34c4599a6d24e52",
+    "https://live.staticflickr.com/5755/22355490820_165a439632_b.jpg",
+    "https://live.staticflickr.com/5755/22355490820_165a439632_b.jpg",
   ];
 
   return (
     <div>
       <MovieCarousel />
 
-      <MovieSlider genre={"Weekly Top"} data={data1} Component={Trending} />
-
-      <MovieSlider
-        genre={"Latest & Trending"}
-        data={data2}
-        Component={MovieCard}
-      />
-      <MovieSlider
-        genre={"Romance & Drama"}
-        data={data2}
-        Component={MovieCard}
-      />
-      <MovieSlider
-        genre={"Action & Thriller"}
-        data={data2}
-        Component={MovieCard}
-      />
+      <Trending data={data1} />
+      <div className="px-5">
+        <MovieSlider
+          genre={"Latest & Trending"}
+          data={data2}
+          Component={MovieCard}
+        />
+        <MovieSlider
+          genre={"Romance & Drama"}
+          data={data2}
+          Component={MovieCard}
+        />
+        <MovieSlider
+          genre={"Action & Thriller"}
+          data={data2}
+          Component={MovieCard}
+        />
+      </div>
       <MovieCompare />
     </div>
   );

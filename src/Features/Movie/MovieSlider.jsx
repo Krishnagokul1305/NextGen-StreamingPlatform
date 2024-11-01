@@ -2,8 +2,8 @@ import Slider from "../../Components/Slider";
 
 function MovieSlider({ genre, data, Component}) {
   return (
-    <div className="text-white p-10 space-y-2">
-      <h1 className="text-2xl font-bold ms-5">{genre}</h1>
+    <div className="text-white my-10 space-y-2">
+      <h1 className="text-2xl font-bold">{genre}</h1>
       <Slider
         data={data}
         renderItem={(imageUrl, index) => (

@@ -19,36 +19,44 @@ function Movie({ movieData = {} }) {
         backgroundPosition: "center",
       }}
     >
-           <div className="h-100 overlay absolute z-20 inset-0"></div>
+      <div className="h-100 overlay absolute z-20 inset-0"></div>
       <div className="absolute inset-0 w-full h-full bg-black opacity-50 z-10"></div>
       <div className="relative z-20 flex items-center text-white gap-20 w-[80%] mx-auto mt-10">
-        <div className="w-[320px] max-h-[450px] overflow-hidden rounded-2xl">
+        <div className="w-[320px] max-h-[450px] overflow-hidden rounded-2xl hidden md:block">
           <img
             src={movieData.poster}
             alt="Movie Poster"
             className="object-contain  w-100 h-[100%]"
           />
         </div>
-        <div className="text-[#FFFFFFCC] w-[50%] space-y-3">
+        <div className="text-[#FFFFFFCC] md:w-[50%]  space-y-3">
           <div>
-            <img src={movieData.titleImage} alt="Movie Title" className="w-[100%]" />
+            <img
+              src={movieData.titleImage}
+              alt="Movie Title"
+              className="w-[100%]"
+            />
           </div>
           <div className="space-y-5">
-            <div className="flex items-center gap-5 justify-center">
+            <div className="flex flex-col md:flex-row items-center gap-5 justify-center">
               <div className="px-4 py-2 border rounded-full">
                 {movieData.rating}
               </div>
-              {movieData?.genres?.map((genre, index) => (
-                <span key={index}>
-                  {genre}
-                  {index < movieData.genres.length - 1 && " ."}
-                </span>
-              ))}
-              <span>{movieData.duration}</span>
+              <div className="flex items-center gap-5">
+                {movieData?.genres?.map((genre, index) => (
+                  <span key={index}>
+                    {genre}
+                    {index < movieData.genres.length - 1 && " ."}
+                  </span>
+                ))}
+                <span>{movieData.duration}</span>
+              </div>
             </div>
+
             <div className="text-sm w-[80%] block text-center mx-auto">
               {movieData.description}
             </div>
+
             <div className="gap-5 flex items-center justify-center">
               <button
                 className="gap-1 flex items-center px-5 py-2 border rounded-full bg-white text-gray-900 cursor-pointer"

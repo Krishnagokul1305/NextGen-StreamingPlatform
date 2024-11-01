@@ -37,7 +37,7 @@ const Carousel = ({ children }) => {
                     </div>
                 ))}
             </div>
-            <button
+            {/* <button
                 className="absolute z-10 top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
                 onClick={goToPrevious}
             >
@@ -48,7 +48,7 @@ const Carousel = ({ children }) => {
                 onClick={goToNext}
             >
                 Next
-            </button>
+            </button> */}
         </div>
     );
 };

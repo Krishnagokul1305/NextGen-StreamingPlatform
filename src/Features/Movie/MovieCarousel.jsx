@@ -68,8 +68,8 @@ function MovieCarousel() {
   
   return (
     <div className="h-screen relative">
-        <NavBar/>
-   
+        {/* <NavBar/>
+    */}
       <Carousel>
         {moviesData.map((movie, index) => (
           <Movie key={index} movieData={movie} />

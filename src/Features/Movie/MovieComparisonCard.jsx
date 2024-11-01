@@ -4,7 +4,7 @@ function MovieComparisonCard() {
   return (
     <div className="min-w-[45%] m-5 p-5 rounded-lg space-y-7">
       {/* Movie Image */}
-      <div className=" h-[250px] bg-[#272727] rounded-lg mb-4 border border-gray-600 p-5">
+      <div className=" h-[200px] bg-[#272727] rounded-lg mb-4 border border-gray-600 p-5">
         <img
           src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/f2c530130018421.617781321b26c.jpg"
           alt="Interstellar"
