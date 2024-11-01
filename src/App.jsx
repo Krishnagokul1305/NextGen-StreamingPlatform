@@ -18,6 +18,7 @@ import LoginForm from "./Features/Auth/LoginForm";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+import VideoPlayer from "./Features/Video/VideoPlayer";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,7 @@ const routes = createBrowserRouter(
 
       <Route element={<AppLayout />}>
         <Route path="/movies" element={<HomePage />} />
+        <Route path="/trailer/:videoUrl" element={<VideoPlayer />} />
       </Route>
     </>
   )

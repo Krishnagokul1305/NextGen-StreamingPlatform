@@ -8,6 +8,11 @@
   font-family: "Poppins", system-ui;
 }
 
+body{
+  background-color: #191919;
+  color: white;
+}
+
 .glassy {
   background: rgba(255, 255, 255, 0.149);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -24,43 +29,11 @@
     rgba(0, 0, 0, 0.0313375350140056) 16%
   );
 }
-/* Scrollbar width */
+
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Scrollbar track */
-  ::-webkit-scrollbar-track {
-    background-color: transparent; /* Fully transparent track */
-  }
-  
-  /* Scrollbar handle (thumb) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #e57b78; /* Scrollbar thumb color */
-    border-radius: 10px; /* Rounded scrollbar thumb */
-  }
-  
-  /* Scrollbar handle hover effect */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #e46260; /* Darker color on hover */
-  }
-  
-  /* For Firefox */
-  * {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: #e57b78 transparent; /* Thumb color and transparent track */
-  }
-  
-  /* Scrollbar will be hidden by default */
-  ::-webkit-scrollbar {
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease; /* Smooth transition */
-    width: 0; /* Ensures scrollbar hides when not hovered */
-  }
-  
-  /* Show scrollbar on hover */
-  body:hover ::-webkit-scrollbar {
-    opacity: 1; /* Visible when hovered */
-    width: 10px; /* Ensure width is restored on hover */
-  }
-  
+  display: none;
+}
+
+/* .outlined-number{
+  -webkit-text-stroke: 10px white;
+} */

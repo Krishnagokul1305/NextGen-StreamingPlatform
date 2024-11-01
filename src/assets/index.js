@@ -6,6 +6,9 @@ import testMovieTile from "./test-movie-title.png";
 import testMovieBg2 from "./test-movie-2.jpg";
 import testMovie2 from "./test-movie-poster-2.jpg";
 import testMovieTile2 from "./test-movie-title2.png";
+import jb from "./jb.png";
+import avengers from "./avengers.png";
+import arrival from "./arrival.png";
 
 export {
   loginImg,
@@ -16,4 +19,7 @@ export {
   testMovie2,
   testMovieBg2,
   testMovieTile2,
+  jb,
+  arrival,
+  avengers,
 };

@@ -29,7 +29,7 @@ const Carousel = ({ children }) => {
                         key={index}
                         className={`absolute w-full h-full transition-opacity duration-700 ease-in-out`}
                         style={{
-                            opacity: index === currentIndex ? 1 : 0,
+                            opacity: index === currentIndex ? 1 : 1,
                             zIndex: index === currentIndex ? 1 : 0,
                         }}
                     >
